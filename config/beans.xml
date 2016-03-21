@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:aop="http://www.springframework.org/schema/aop"
+        xmlns:tx="http://www.springframework.org/schema/tx"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		                    http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		                    http://www.springframework.org/schema/context 
+		                    http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		                    http://www.springframework.org/schema/tx 
+		                    http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+		                    http://www.springframework.org/schema/aop 
+		                    http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
+	
+	<context:component-scan base-package="com.yc.electricity"/>
+
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/Electricity?userUnicode=true&amp;characterEncoding=utf8" />
+		<property name="username" value="root" />
+		<property name="password" value="123456a" />
+	</bean>
+
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="configLocation">
+			<value>
+				classpath:hibernate.cfg.xml
+			</value>
+		</property>
+	</bean>
+
+	<bean id="txManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+
+	<tx:annotation-driven transaction-manager="txManager"/>
+
+
+	<!--Transaction XML -->
+	<!--<tx:advice id="tx" transaction-manager="txManager">-->
+		<!--<tx:attributes>-->
+			<!--<tx:method name="save*" isolation="DEFAULT" propagation="REQUIRED" read-only="false"/>-->
+			<!--<tx:method name="update*" isolation="DEFAULT" propagation="REQUIRED" read-only="false"/>-->
+			<!--<tx:method name="delete*" isolation="DEFAULT" propagation="REQUIRED" read-only="false"/>-->
+			<!--<tx:method name="*" read-only="true"/>-->
+		<!--</tx:attributes>-->
+	<!--</tx:advice>-->
+	<!--<aop:config>-->
+		<!--<aop:pointcut id="perform" expression="execution(* com.yc.electricity.service..*.*(..))"/>-->
+		<!--<aop:advisor advice-ref="tx" pointcut-ref="perform"/>-->
+	<!--</aop:config>-->
+</beans>
