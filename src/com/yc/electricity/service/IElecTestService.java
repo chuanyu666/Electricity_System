@@ -3,7 +3,6 @@ package com.yc.electricity.service;
 import com.yc.electricity.domain.ElecTest;
 
 import java.util.List;
-import java.util.Map;
 
 
 /**

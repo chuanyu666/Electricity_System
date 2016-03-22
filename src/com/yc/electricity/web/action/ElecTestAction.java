@@ -11,7 +11,6 @@ import org.springframework.stereotype.Controller;
 
 import javax.annotation.Resource;
 
-import static org.apache.struts2.interceptor.DateTextFieldInterceptor.DateWord.s;
 
 /**
  * Created by Chuan on 3/19/16.
