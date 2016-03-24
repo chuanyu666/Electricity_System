@@ -56,7 +56,10 @@ public class CommonDaoImpl<T> extends HibernateDaoSupport implements ICommonDao<
     public List<T> findListByConditionNoPage(String condition, Object[] params, Map<String, String> orderBy) {
         String hql = "from " + clazz.getSimpleName() + " o where 1=1";
         String orderByCondition = orderByHql(orderBy);
-        hql += condition + orderByCondition;
+        if (condition != null) {
+            hql += condition;
+        }
+        hql += orderByCondition;
         return (List<T>) getHibernateTemplate().find(hql, params);
 
         //call hibernate session

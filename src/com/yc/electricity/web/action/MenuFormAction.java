@@ -1,5 +1,8 @@
 package com.yc.electricity.web.action;
 
+import com.yc.electricity.domain.CommonMsg;
+import com.yc.electricity.service.ICommonMsgService;
+import com.yc.electricity.util.ValueStackUtil;
 import com.yc.electricity.web.action.form.MenuForm;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
@@ -7,6 +10,8 @@ import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+
+import javax.annotation.Resource;
 
 
 /**
@@ -20,6 +25,8 @@ public class MenuFormAction extends BaseAction<MenuForm>{
 
     private MenuForm menuForm = this.getModel();
 
+    @Resource(name = ICommonMsgService.SERVICE_NAME)
+    private ICommonMsgService commonMsgService;
 
     @Action(value = "menuHome",results = {
             @Result(name = SUCCESS, location = "/WEB-INF/page/menu/home.jsp")
@@ -61,6 +68,8 @@ public class MenuFormAction extends BaseAction<MenuForm>{
             @Result(name = SUCCESS, location = "/WEB-INF/page/menu/alarmStation.jsp")
     })
     public String alarmStation() {
+        CommonMsg findCommonMsg = commonMsgService.findCommonMsg();
+        ValueStackUtil.pushValueStack(findCommonMsg);
         return SUCCESS;
     }
 
@@ -68,6 +77,8 @@ public class MenuFormAction extends BaseAction<MenuForm>{
             @Result(name = SUCCESS, location = "/WEB-INF/page/menu/alarmDevice.jsp")
     })
     public String alarmDevice() {
+        CommonMsg findCommonMsg = commonMsgService.findCommonMsg();
+        ValueStackUtil.pushValueStack(findCommonMsg);
         return SUCCESS;
     }
 

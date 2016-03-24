@@ -17,5 +17,6 @@
         <!--<property name="hibernate.connection.autocommit">true</property>-->
 
         <mapping class="com.yc.electricity.domain.ElecTest"/>
+        <mapping class="com.yc.electricity.domain.CommonMsg"/>
     </session-factory>
 </hibernate-configuration>

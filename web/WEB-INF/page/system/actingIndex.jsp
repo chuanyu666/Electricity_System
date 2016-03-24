@@ -1,7 +1,5 @@
-
-
 <%@ page language="java" pageEncoding="UTF-8"%>
-
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <html>
 <head>
 <title>运行监控模块编辑</title>
@@ -23,9 +21,9 @@
 	     	alert("设备运行情况字数不能超过2500字");
 	     	return;
 	  	}
-  		document.Form2.action="savePending.do";
+  		document.Form2.action="${pageContext.request.contextPath}/system/saveCommonMsg.do";
   		document.Form2.submit();
-  		alert(" 待办事宜保存成功!");
+//  		alert(" 待办事宜保存成功!");
   }
   function addEnter(element){
    		document.getElementById(element).value = document.getElementById(element).value+"<br>";
@@ -78,19 +76,18 @@
 							<tr onmouseover="this.style.backgroundColor = 'white'" onmouseout="this.style.backgroundColor = '#F5FAFE';">
 								<td style="HEIGHT:22px" align="center" width="40%">
 									<div class="scrollStyle" align="left" onmouseover="showInfoWithPanel(this)" onmouseout="hiddenInfoPanel(this)" style="table-layout:fixed;">
-										9点站点运行正常
+										<s:property value="stationRun"/>
 									</div>
 								</td>
 								<td style="HEIGHT:22px" align="center" width="40%">
 									<div class="scrollStyle" align="left" onmouseover="showInfoWithPanel(this)" onmouseout="hiddenInfoPanel(this)" style="table-layout:fixed;">
-										9点设备运行正常xcvcxvxcv设备运行正常xcvcxvxcv设备运行正常xcvcxvxcv设备运行正常xcvcxvxcv设备运行正常xcvcxvxcv设备运行正常xcvcxvxcv设备运行正常xcvcxvxcv设备运行正常xcvcxvxcv设备运行正常xcvcxvxcv设备运行正常xcvcxvxcv
+										<s:property value="devRun"/>
 									</div>
 								</td>
 								<td style="HEIGHT:22px" align="center" width="20%">
-									2010-08-08 12:55:55 
+									<s:date name="createDate" format="yyyy-MM-dd HH:mm:ss"/>
 								</td>
 							</tr>
-							
 						</table>
 						
 					</td>
@@ -112,15 +109,14 @@
 		<tr>
 			<td class="ta_01" align="center" bgcolor="#f5fafe" width="15%">站点运行情况：</td>
 			<td class="ta_01" bgcolor="#ffffff" style="word-break: break-all">
-	
-				<textarea name="stationRun" id="stationRun"   style="width: 500px; height: 160px; padding: 1;FONT-FAMILY: 宋体; FONT-SIZE: 9pt" onkeydown="if(event.keyCode==13)addEnter('stationRun');">9点站点运行正常</textarea>
+				<s:textarea name="stationRun" id="stationRun" cssStyle="width: 500px; height: 160px; padding: 1;FONT-FAMILY: 宋体; FONT-SIZE: 9pt" onkeydown="if(event.keyCode==13)addEnter('stationRun');"/>
 			</td>
 			
 		</tr>
 		<tr>
 			<td class="ta_01" align="center" bgcolor="#f5fafe" width="15%">设备运行情况：</td>
 			<td class="ta_01" bgcolor="#ffffff" style="word-break: break-all">
-				<textarea name="devRun" id="devRun"  style="width: 500px; height: 160px; padding: 1;FONT-FAMILY: 宋体; FONT-SIZE: 9pt" onkeydown="if(event.keyCode==13)addEnter('devRun');">9点设备运行正常</textarea>
+				<s:textarea name="devRun" id="devRun" cssStyle="width: 500px; height: 160px; padding: 1;FONT-FAMILY: 宋体; FONT-SIZE: 9pt" onkeydown="if(event.keyCode==13)addEnter('devRun');"/>
 			</td>
 			
 		</tr>

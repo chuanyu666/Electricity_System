@@ -6,6 +6,7 @@
 	<constant name="struts.devMode" value="true"></constant>
 	<constant name="struts.ui.theme" value="simple"></constant>
 	<constant name="struts.action.extension" value="do"></constant>
+	<constant name="struts.convention.classes.reload" value="true"/>
 	<constant name="struts.objectFactory" value="spring"/>
 
 	<!--&lt;!&ndash; System Management&ndash;&gt;-->
