@@ -19,7 +19,8 @@
     </filter>
     <filter-mapping>
         <filter-name>StrutsPrepareAndExecuteFilter</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>*.do</url-pattern>
+        <url-pattern>*.jsp</url-pattern>
     </filter-mapping>
 
     <!-- CKEditor+CKFinder文本编辑器，being -->

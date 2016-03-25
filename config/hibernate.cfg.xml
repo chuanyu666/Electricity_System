@@ -18,5 +18,6 @@
 
         <mapping class="com.yc.electricity.domain.ElecTest"/>
         <mapping class="com.yc.electricity.domain.CommonMsg"/>
+        <mapping class="com.yc.electricity.domain.CommonMsgContent"/>
     </session-factory>
 </hibernate-configuration>

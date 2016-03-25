@@ -1,6 +1,6 @@
 package com.yc.electricity.dao.impl;
 
-import com.yc.electricity.dao.ICommonDao;
+import com.yc.electricity.dao.IBaseDao;
 import com.yc.electricity.util.TUtils;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * Created by yuchuan on 3/19/16.
  */
-public class CommonDaoImpl<T> extends HibernateDaoSupport implements ICommonDao<T>{
+public class BaseDaoImpl<T> extends HibernateDaoSupport implements IBaseDao<T> {
 
     private Class<T> clazz = TUtils.getActualType(this.getClass());
 

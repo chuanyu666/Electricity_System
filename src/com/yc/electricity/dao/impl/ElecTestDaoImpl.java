@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
  * Created by yuchuan on 3/19/16.
  */
 @Repository(IElecTestDao.DAO_NAME)
-public class ElecTestDaoImpl extends CommonDaoImpl<ElecTest> implements IElecTestDao{
+public class ElecTestDaoImpl extends BaseDaoImpl<ElecTest> implements IElecTestDao{
 }

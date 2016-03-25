@@ -61,6 +61,8 @@ public class MenuFormAction extends BaseAction<MenuForm>{
             @Result(name = SUCCESS, location = "/WEB-INF/page/menu/loading.jsp")
     })
     public String menuLoading() {
+        CommonMsg findCommonMsg = commonMsgService.findCommonMsg();
+        ValueStackUtil.pushValueStack(findCommonMsg);
         return SUCCESS;
     }
 

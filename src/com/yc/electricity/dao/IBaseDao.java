@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * Created by yuchuan on 3/19/16.
  */
-public interface ICommonDao<T> {
+public interface IBaseDao<T> {
     void save(T entity);
     void update(T entity);
     T findObjectById(Serializable id);
