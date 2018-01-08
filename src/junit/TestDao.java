@@ -18,7 +18,7 @@ public class TestDao {
         ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
         IElecTestDao dao = (IElecTestDao) ac.getBean(IElecTestDao.DAO_NAME);
         ElecTest et = new ElecTest();
-        et.setTestName("dao2255");
+        et.setTestName("dao111");
         et.setTestDate(new Date());
         et.setTestRemark("Test DAO");
         dao.save(et);
