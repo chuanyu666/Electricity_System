@@ -20,7 +20,7 @@ public class TestDao {
         ElecTest et = new ElecTest();
         et.setTestName("pr1231");
         et.setTestDate(new Date());
-        et.setTestRemark("Test DAO123");
+        et.setTestRemark("Test DAO hello");
         dao.save(et);
     }
 
